@@ -36,7 +36,6 @@ const About = ({ helmetTitle }) => {
                             <CustomDivider
                                 bColor="primary.main"
                                 cColor="primary"
-                                // icon={}
                                 align="right"
                                 text="مشاور امنیت اطلاعات"
                             />
@@ -61,7 +60,6 @@ const About = ({ helmetTitle }) => {
                             <CustomDivider
                                 bColor="primary.main"
                                 cColor="primary"
-                                // icon={}
                                 align="center"
                                 text="مهارت های من"
                             />
