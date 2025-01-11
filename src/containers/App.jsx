@@ -33,8 +33,15 @@ function App() {
   }, [isMdUp]);
 
   const handlePageNumber = (event, newPage) => {
+    // console.log("page Number Event:", event);
+    // console.log("page Number:" , newPage); => page Number Event: 1 , page Number: 0
+
     setPageNumber(newPage);
   };
+
+  const handlePageChange = (index) => {
+    setPageNumber(index);
+  }
 
   const handleThemeChange = () => {
     setMode((prevMode) => (prevMode === "light" ? "dark" : "light"));
@@ -59,7 +66,7 @@ function App() {
         <PagesContainer>
           <SwipeableViews
             index={pageNumber}
-            onChangeIndex={handlePageNumber}
+            onChangeIndex={handlePageChange}
           >
             <Page pageNumber={pageNumber} index={0}>
               <Home helmetTitle="وب سایت شخصی یونس قربانی" />

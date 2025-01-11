@@ -1,34 +1,28 @@
 import { useState, useEffect } from "react";
 
-import { useTheme } from "@mui/material/styles";
 import {
-    Divider,
-    Chip,
     Typography,
     Card,
     CardContent,
     Slide,
-    TextField,
-    InputAdornment,
-    CardActions,
-    Button,
-    Box
 } from "@mui/material";
 import Grid from "@mui/material/Unstable_Grid2";
 import {
     AccountCircle,
-    Face6Rounded,
-    SubjectRounded,
-    EmailRounded,
 } from "@mui/icons-material";
 import { Helmet } from "react-helmet-async";
 
 import worldMap from "../assets/map.svg";
 
-const Contact = ({ helmetTitle }) => {
-    const [loading, setLoading] = useState(false);
+import { CustomDivider } from "../components/commons";
+import { ContactForm } from "../components/pages";
 
-    const theme = useTheme();
+
+
+
+const Contact = ({ helmetTitle }) => {
+
+    const [loading, setLoading] = useState(false);
 
     useEffect(() => {
         setLoading(true);
@@ -37,6 +31,7 @@ const Contact = ({ helmetTitle }) => {
             setLoading(false);
         };
     }, []);
+
 
     return (
         <Card
@@ -52,30 +47,14 @@ const Contact = ({ helmetTitle }) => {
                 <title>{helmetTitle}</title>
             </Helmet>
             <CardContent>
-                <Divider
-                    textAlign="center"
-                    sx={{
-                        mt: 2,
-                        "&::before, &::after": {
-                            borderColor: "warning.main",
-                        },
-                    }}
-                >
-                    <Chip
-                        icon={<AccountCircle />}
-                        color="warning"
-                        label={
-                            <Typography
-                                variant="body1"
-                                color="black"
-                                sx={{ textAlign: "center" }}
-                            >
-                                ارتباط با من
-                            </Typography>
-                        }
-                        sx={{ p: 3 }}
-                    />
-                </Divider>
+                <CustomDivider
+                    bColor="warning.main"
+                    cColor="warning"
+                    icon={<AccountCircle />}
+                    align="center"
+                    text="ارتباط با من"
+                />
+                
                 {/* ////////////////////////grid/////////////////////////////////// */}
                 <Grid container sx={{ mt: 5 }}>
                     <Slide
@@ -94,90 +73,7 @@ const Contact = ({ helmetTitle }) => {
                                 }}
                             >
                                 {/* ///////////////form/////////////////////////////// */}
-                                <form autoComplete="off" >
-                                    <CardContent>
-                                        <div style={{ padding: 20 }}>
-                                            <Grid container spacing={2} sx={{ direction: "ltr" }}>
-                                                <Grid item xs={12} sm={6}>
-                                                    <TextField
-                                                        fullWidth
-                                                        label="نام و نام خانوادگی"
-                                                        variant="outlined"
-                                                        color="warning"
-                                                        name="fullname"
-                                                        InputProps={{
-                                                            endAdornment: (
-                                                                <InputAdornment postion="end">
-                                                                    <Face6Rounded />
-                                                                </InputAdornment>
-                                                            ),
-                                                        }}
-                                                    />
-                                                </Grid>
-                                                <Grid item xs={12} sm={6}>
-                                                    <TextField
-                                                        fullWidth
-                                                        label="آدرس ایمیل"
-                                                        variant="outlined"
-                                                        color="warning"
-                                                        name="email"
-                                                        InputProps={{
-                                                            endAdornment: (
-                                                                <InputAdornment postion="end">
-                                                                    <EmailRounded />
-                                                                </InputAdornment>
-                                                            ),
-                                                        }}
-                                                    />
-                                                </Grid>
-                                                <Grid item xs={12}>
-                                                    <TextField
-                                                        fullWidth
-                                                        label="عنوان"
-                                                        variant="outlined"
-                                                        color="warning"
-                                                        name="subject"
-                                                        InputProps={{
-                                                            endAdornment: (
-                                                                <InputAdornment postion="end">
-                                                                    <SubjectRounded />
-                                                                </InputAdornment>
-                                                            ),
-                                                        }}
-                                                    />
-                                                </Grid>
-                                                <Grid item xs={12}>
-                                                    <TextField
-                                                        fullWidth
-                                                        label="متن پیام"
-                                                        variant="outlined"
-                                                        multiline
-                                                        rows={4}
-                                                        color="warning"
-                                                        name="message"
-                                                    />
-                                                </Grid>
-                                            </Grid>
-                                        </div>
-
-                                    </CardContent>
-                                    <CardActions
-                                        sx={{
-                                            alignItems: "end",
-                                            flexDirection: "column",
-                                        }}
-                                    >
-                                        <Button
-                                            type="submit"
-                                            color="success"
-                                            variant="contained"
-                                            sx={{ mt: 2 }}
-                                            fullWidth
-                                        >
-                                            ارسال کن
-                                        </Button>
-                                    </CardActions>
-                                </form>
+                                <ContactForm />
                                 {/* ///////////////form/////////////////////////////// */}
                             </Card>
                         </Grid>

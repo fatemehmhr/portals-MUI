@@ -27,7 +27,6 @@ const Comments = ({ helmetTitle }) => {
                 <CustomDivider
                     bColor="success.main"
                     cColor="success"
-                    // icon={}
                     align="center"
                     text="نظرات دانشجویان دوره های من"
                 />
